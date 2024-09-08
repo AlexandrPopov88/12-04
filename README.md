@@ -31,7 +31,7 @@
 
 ### Решение 1
 
-'''
+```
 
 SELECT CONCAT(s.last_name, ' ', s.first_name) AS staff, c.city, COUNT(c2.store_id) AS custumers
 FROM customer c2
@@ -42,7 +42,7 @@ INNER JOIN city c ON c.city_id = a.city_id
 GROUP BY c2.store_id
 HAVING COUNT(c2.store_id) > 300;
 
-'''
+```
 
 ![з-1](https://github.com/user-attachments/assets/853ee92d-d657-4c29-9348-f25df01058a4)
 
