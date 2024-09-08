@@ -55,6 +55,16 @@ HAVING COUNT(c2.store_id) > 300;
 
 ### Решение 2
 
+```
+SELECT COUNT(f.title) 
+FROM film f
+WHERE f.`length` > (SELECT AVG(`length`) FROM film)
+
+```
+
+![з-2](https://github.com/user-attachments/assets/841b89c9-d02e-4feb-a1cb-729da2aa7fb8)
+
+
 
 
 ### Задание 3
@@ -62,6 +72,17 @@ HAVING COUNT(c2.store_id) > 300;
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 
 ### Решение 3
+
+```
+SELECT MONTH(payment_date), SUM(p.amount), COUNT(p.rental_id) 
+FROM payment p
+GROUP BY MONTH(payment_date)
+ORDER BY SUM(p.amount ) DESC
+LIMIT 1;
+
+```
+
+![з-3](https://github.com/user-attachments/assets/9b7a6c63-af7b-468d-9871-d1785244431d)
 
 
 
